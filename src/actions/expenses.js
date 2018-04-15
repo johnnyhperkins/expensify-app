@@ -46,3 +46,30 @@ export const editExpense = (id, updates) => ({
     id,
     updates
 });
+
+// SET_EXPENSES
+
+export const setExpenses = (expenses) => ({
+    type: 'SET_EXPENSES',
+    expenses
+});
+
+export const startSetExpenses = () => {
+    return (dispatch) => {
+        //must use return here to get the promise from the DB, which give us access to the .then() method
+        return database.ref('expenses').once('value').then((snapshot) => {
+            const expenses = [];
+            snapshot.forEach((childSnapshot) => {
+                expenses.push({
+                    id: childSnapshot.key,
+                    ...childSnapshot.val()
+                });
+            });
+            dispatch(setExpenses(expenses));
+        },
+            (e) => {
+                console.log('Error with data fetching. ', e)
+            }
+        );
+    };
+};
