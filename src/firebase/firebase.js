@@ -19,6 +19,10 @@ export { firebase, database as default };
 // database.ref().set({});
 
 
+// HOW TO REMOVE DATA
+// get a reference to the data first 
+// database.ref('expenses/-LA8mPmcFfd_cDNGg5jd').remove().then(()=> {console.log('removed');}).catch((e)=> {console.log('error', e);})
+
 // database.ref().set({
 // }).then(() => {
 //     console.log('data is saved');
