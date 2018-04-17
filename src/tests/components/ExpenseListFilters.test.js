@@ -22,7 +22,7 @@ beforeEach(() => {
             setEndDate = {setEndDate}
         />
     );
-})
+});
 
 test('should render ExpenseListFitlers', () => {
     expect(wrapper).toMatchSnapshot();
