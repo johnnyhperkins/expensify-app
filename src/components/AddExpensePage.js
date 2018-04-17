@@ -13,12 +13,17 @@ export class AddExpensePage extends React.Component {
     render() {
         return (
             <div>
-                <h1>ADD Expense</h1>
+                <div className="page-header">
+                    <div className="content-container">
+                        <h1 className="page-header__title">Add Expense</h1>
+                    </div>
+                </div>
                 {/* the 'expense' object being passed in here gives us all its properties back (description, amount, note and cratedAt) from the submitted form */}
-                <ExpenseForm onSubmit={this.onSubmit} />
-
+                <div className="content-container">
+                    <ExpenseForm onSubmit={this.onSubmit} />
+                </div>
                 {/* <p>Editing this id: {props.match.params.id}</p> */}
-            </div>
+            </div> 
         );  
     }
 }

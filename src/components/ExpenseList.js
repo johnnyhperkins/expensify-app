@@ -4,19 +4,27 @@ import ExpenseListItem from './ExpenseListItem';
 import selectExpenses from '../selectors/expenses';
 
 export const ExpenseList = (props) => (
-    <div>
-    {
-        props.expenses.length === 0 ? (
-            <p>No expenses</p>
-        ) : (
-            props.expenses.map((expense) => {
-            return <ExpenseListItem key={expense.id} {...expense} />
-        })
-        )
-    }
+    <div className="content-container">
+        <div className="list-header">
+            <div className="show-for-mobile">Expenses</div>    
+            <div className="show-for-desktop">Expense</div>
+            <div className="show-for-desktop">Amount</div>
+        </div>
+        <div className="list-body">
+            {
+            props.expenses.length === 0 ? (
+                <div className="list-item--message list-item">
+                    <span>No expenses</span>
+                </div>
+            ) : (
+                props.expenses.map((expense) => {
+                return <ExpenseListItem key={expense.id} {...expense} />
+            })
+            )
+        }
         {/* LONG WAY: <ExpenseListItem key={expense.id} description={expense.description} amount={expense.amount} createdAt = {expense.createdAt} /> 
         BETTER WAY: using the spread operator which just takes the expense object and passes it down into ExpenseListItem, which takes an object {description, amount, createdAt} as its argument. But those are only a few of the properties from that object. Also available are the dispatch function and id */}
-        
+        </div>
     </div>
 );
 
