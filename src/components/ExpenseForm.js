@@ -16,8 +16,6 @@ export default class ExpenseForm extends React.Component {
             calendarFocused: false,
             error: ''
         };
-        
-        // this.setState((props) => props.expense );
     };
     
     onDescriptionChange = (e) => {

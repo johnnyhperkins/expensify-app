@@ -15,6 +15,10 @@
     background: $light-gray;
 }
 
+.button--inline {
+    margin-left:$s-size;
+}
+
 .button--link {
     background:none;
     padding:none;
